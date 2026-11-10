@@ -1,0 +1,11 @@
+# Cloned source repos scanned (large; not part of the published report)
+scan/repos/
+
+# Logs & OS noise
+*.log
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc

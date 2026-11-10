@@ -1,0 +1,1390 @@
+{
+  "scanned_at": "2026-11-10",
+  "results": [
+    {
+      "repo": "DesktopCommanderMCP",
+      "files_total": 638,
+      "files_scanned": 638,
+      "files_binary_skipped": 0,
+      "files_size_skipped": 0,
+      "findings_total": 337,
+      "findings_real": 84,
+      "high": 0,
+      "medium": 20,
+      "verdict": "REVIEW",
+      "rules": {
+        "HB602": 234,
+        "HB501": 46,
+        "HB403": 7,
+        "HB401": 12,
+        "HB405": 6,
+        "HB101": 3,
+        "HB310": 1,
+        "HB503": 27,
+        "HB301": 1
+      },
+      "notable": [
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": "install-docker.ps1",
+          "line": 242,
+          "snippet": "docker run --rm -v dc-system:/target mcp/desktop-commander:latest sh -c 'rm -rf /target/src/app && cp -a /usr/. /target/'",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": "install-docker.sh",
+          "line": 271,
+          "snippet": "if docker run --rm -v dc-system:/target \"$DOCKER_IMAGE\" sh -c 'rm -rf /target/src/app && cp -a /usr/. /target/'; then",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": "install.sh",
+          "line": 36,
+          "snippet": "rm -rf /tmp/nodejs-install",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "install.sh",
+          "line": 46,
+          "snippet": "if npx @wonderwhy-er/desktop-commander@latest setup; then",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "package.json",
+          "line": 59,
+          "snippet": "\"inspector\": \"npx @modelcontextprotocol/inspector dist/index.js\",",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "scripts/remote/remote-linux.sh",
+          "line": 79,
+          "snippet": "'npx @wonderwhy-er/desktop-commander@latest remote'",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB401",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": "scripts/remote/remote-linux.sh",
+          "line": 202,
+          "snippet": "# -t 0 checks whether stdin is a terminal. A curl | sh pipe needs /dev/tty for interactive input.",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "scripts/remote/remote-macos.sh",
+          "line": 76,
+          "snippet": "'npx @wonderwhy-er/desktop-commander@latest remote'",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB401",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": "scripts/remote/remote-macos.sh",
+          "line": 174,
+          "snippet": "# -t 0 checks whether stdin is a terminal. A curl | sh pipe needs /dev/tty for interactive input.",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "setup-claude-server.js",
+          "line": 211,
+          "snippet": "// Usage: npx @wonderwhy-er/desktop-commander setup alpha",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "setup-claude-server.js",
+          "line": 217,
+          "snippet": "// e.g., npx @wonderwhy-er/desktop-commander@0.2.18-alpha setup",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "src/npm-scripts/remote.ts",
+          "line": 42,
+          "snippet": "npx @wonderwhy-er/desktop-commander@latest remote",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "src/npm-scripts/remote.ts",
+          "line": 43,
+          "snippet": "npx @wonderwhy-er/desktop-commander@latest remote --debug",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "src/npm-scripts/remote.ts",
+          "line": 44,
+          "snippet": "npx @wonderwhy-er/desktop-commander@latest remote --logout",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "src/npm-scripts/remote.ts",
+          "line": 45,
+          "snippet": "npx @wonderwhy-er/desktop-commander@latest remote --report",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "src/remote-device/device.ts",
+          "line": 455,
+          "snippet": "console.log('\u2502 Help:    npx @wonderwhy-er/desktop-commander@latest remote --help');",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "src/remote-device/device.ts",
+          "line": 456,
+          "snippet": "console.log('\u2502 Log out: npx @wonderwhy-er/desktop-commander@latest remote --logout');",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB101",
+          "family": "Hidden content",
+          "severity": "medium",
+          "file": "src/remote-device/diagnostics/device-log.ts",
+          "line": 86,
+          "snippet": "\u200d  (+1 hidden chars total)",
+          "note": "zero-width=1 bidi=0 tags=0",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/remote-device/diagnostics/redact.ts",
+          "line": 13,
+          "snippet": "const SECRET_KEYS = 'access_token|refresh_token|provider_token|provider_refresh_token|apikey|api_key|password|passwd|secret|client_secret';",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "uninstall-claude-server.js",
+          "line": 694,
+          "snippet": "logToFile('npx @wonderwhy-er/desktop-commander@latest setup');",
+          "note": "",
+          "likely_doc": false
+        }
+      ]
+    },
+    {
+      "repo": "github-mcp-server",
+      "files_total": 403,
+      "files_scanned": 403,
+      "files_binary_skipped": 0,
+      "files_size_skipped": 0,
+      "findings_total": 273,
+      "findings_real": 47,
+      "high": 0,
+      "medium": 6,
+      "verdict": "REVIEW",
+      "rules": {
+        "HB310": 6,
+        "HB602": 225,
+        "HB403": 7,
+        "HB105": 1,
+        "HB503": 11,
+        "HB201": 1,
+        "HB311": 21,
+        "HB101": 1
+      },
+      "notable": [
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": ".github/workflows/issue-triage.lock.yml",
+          "line": 1750,
+          "snippet": "run: rm -rf /tmp/gh-aw/sandbox/agent/logs/copilot-session-state",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": ".github/workflows/issue-triage.lock.yml",
+          "line": 1753,
+          "snippet": "rm -rf /tmp/gh-aw/sandbox/firewall/logs",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": ".github/workflows/issue-triage.lock.yml",
+          "line": 1754,
+          "snippet": "rm -rf /tmp/gh-aw/sandbox/firewall/audit",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": ".github/workflows/pr-triage.lock.yml",
+          "line": 1693,
+          "snippet": "run: rm -rf /tmp/gh-aw/sandbox/agent/logs/copilot-session-state",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": ".github/workflows/pr-triage.lock.yml",
+          "line": 1696,
+          "snippet": "rm -rf /tmp/gh-aw/sandbox/firewall/logs",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": ".github/workflows/pr-triage.lock.yml",
+          "line": 1697,
+          "snippet": "rm -rf /tmp/gh-aw/sandbox/firewall/audit",
+          "note": "",
+          "likely_doc": false
+        }
+      ]
+    },
+    {
+      "repo": "mcp-remote",
+      "files_total": 63,
+      "files_scanned": 63,
+      "files_binary_skipped": 0,
+      "files_size_skipped": 0,
+      "findings_total": 257,
+      "findings_real": 35,
+      "high": 0,
+      "medium": 8,
+      "verdict": "REVIEW",
+      "rules": {
+        "HB602": 196,
+        "HB503": 6,
+        "HB310": 52,
+        "HB403": 3
+      },
+      "notable": [
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/client-credentials.ts",
+          "line": 50,
+          "snippet": "if (!clientInformation.client_secret) {",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/device-authorization.ts",
+          "line": 208,
+          "snippet": "if (method === 'client_secret_basic') {",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/device-authorization.ts",
+          "line": 209,
+          "snippet": "if (!client_secret) throw new Error('client_secret_basic authentication requires a client_secret')",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/device-authorization.ts",
+          "line": 214,
+          "snippet": "if (method === 'client_secret_post') {",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/device-authorization.ts",
+          "line": 216,
+          "snippet": "if (client_secret) params.set('client_secret', client_secret)",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/node-oauth-client-provider.ts",
+          "line": 224,
+          "snippet": "const TOKEN_ENDPOINT_AUTH_METHOD_PREFERENCE = ['none', 'client_secret_post', 'client_secret_basic']",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/node-oauth-client-provider.ts",
+          "line": 503,
+          "snippet": "if (!clientInformation?.client_secret) {",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "src/lib/node-oauth-client-provider.ts",
+          "line": 610,
+          "snippet": "* gets. RFC 8414's `client_secret_basic` default describes servers that publish metadata; one",
+          "note": "",
+          "likely_doc": false
+        }
+      ]
+    },
+    {
+      "repo": "mcp-server-cloudflare",
+      "files_total": 422,
+      "files_scanned": 422,
+      "files_binary_skipped": 0,
+      "files_size_skipped": 0,
+      "findings_total": 564,
+      "findings_real": 341,
+      "high": 0,
+      "medium": 37,
+      "verdict": "REVIEW",
+      "rules": {
+        "HB602": 449,
+        "HB310": 85,
+        "HB501": 9,
+        "HB503": 20,
+        "HB403": 1
+      },
+      "notable": [
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/ai-gateway/src/ai-gateway.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/auditlogs/src/auditlogs.context.ts",
+          "line": 9,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/autorag/src/autorag.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/browser-rendering/src/browser.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/cloudflare-one-casb/src/cf1-casb.context.ts",
+          "line": 10,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "apps/demo-day/frontend/index.html",
+          "line": 109,
+          "snippet": "xmlns=\"http://www.w3.org/2000/svg\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "apps/demo-day/frontend/index.html",
+          "line": 144,
+          "snippet": "xmlns=\"http://www.w3.org/2000/svg\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "apps/demo-day/frontend/index.html",
+          "line": 276,
+          "snippet": "xmlns=\"http://www.w3.org/2000/svg\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "apps/demo-day/frontend/index.html",
+          "line": 311,
+          "snippet": "xmlns=\"http://www.w3.org/2000/svg\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "apps/demo-day/frontend/index.html",
+          "line": 346,
+          "snippet": "xmlns=\"http://www.w3.org/2000/svg\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/dex-analysis/src/dex-analysis.context.ts",
+          "line": 10,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/dns-analytics/src/dns-analytics.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/dns-analytics/src/dns-analytics.context.ts",
+          "line": 11,
+          "snippet": "SENTRY_ACCESS_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/docs-ai-search/src/docs-ai-search.context.ts",
+          "line": 7,
+          "snippet": "SENTRY_ACCESS_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/graphql/src/graphql.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/graphql/src/graphql.context.ts",
+          "line": 11,
+          "snippet": "SENTRY_ACCESS_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/logpush/src/logpush.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/radar/src/radar.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/sandbox-container/server/sandbox.server.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB403",
+          "family": "Execution & exfiltration",
+          "severity": "medium",
+          "file": "apps/sandbox-container/server/sandboxTemplate.ts",
+          "line": 19,
+          "snippet": "rm -rf /var/lib/apt/lists/*",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/sandbox-container/worker-configuration.d.ts",
+          "line": 61,
+          "snippet": "| 'CLOUDFLARE_CLIENT_SECRET'",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/workers-bindings/src/bindings.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/workers-builds/src/workers-builds.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/workers-builds/src/workers-builds.context.ts",
+          "line": 11,
+          "snippet": "SENTRY_ACCESS_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/workers-observability/src/workers-observability.context.ts",
+          "line": 8,
+          "snippet": "CLOUDFLARE_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "apps/workers-observability/src/workers-observability.context.ts",
+          "line": 11,
+          "snippet": "SENTRY_ACCESS_CLIENT_SECRET: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mcp-common/src/cloudflare-auth.ts",
+          "line": 161,
+          "snippet": "client_secret,",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mcp-common/src/cloudflare-auth.ts",
+          "line": 167,
+          "snippet": "client_secret: string",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mcp-common/src/cloudflare-auth.ts",
+          "line": 201,
+          "snippet": "client_secret,",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mcp-common/src/cloudflare-auth.ts",
+          "line": 205,
+          "snippet": "client_secret: string",
+          "note": "",
+          "likely_doc": false
+        }
+      ]
+    },
+    {
+      "repo": "mongodb-mcp-server",
+      "files_total": 792,
+      "files_scanned": 792,
+      "files_binary_skipped": 0,
+      "files_size_skipped": 0,
+      "findings_total": 646,
+      "findings_real": 237,
+      "high": 0,
+      "medium": 23,
+      "verdict": "REVIEW",
+      "rules": {
+        "HB310": 97,
+        "HB602": 535,
+        "HB105": 2,
+        "HB503": 5,
+        "HB402": 2,
+        "HB311": 4,
+        "HB101": 1
+      },
+      "notable": [
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/accuracy-tests/src/sdk/describeAccuracyTests.ts",
+          "line": 92,
+          "snippet": "apiClientSecret: process.env.MDB_API_CLIENT_SECRET,",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/atlas-api-client/src/auth/clientCredentials.ts",
+          "line": 29,
+          "snippet": "token_endpoint_auth_methods_supported: [\"client_secret_basic\"],",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/e2e-tests/src/utils/useAtlasApiAgent.ts",
+          "line": 10,
+          "snippet": "const ATLAS_CLIENT_SECRET = process.env.AGENT_E2E_ATLAS_CLIENT_SECRET ?? \"\";",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/e2e-tests/src/utils/useAtlasApiAgent.ts",
+          "line": 16,
+          "snippet": "return !!ATLAS_CLIENT_ID && !!ATLAS_CLIENT_SECRET;",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/e2e-tests/src/utils/useAtlasApiAgent.ts",
+          "line": 60,
+          "snippet": "apiClientSecret: ATLAS_CLIENT_SECRET,",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/e2e-tests/src/utils/useRemoteAtlasMcpAgent.ts",
+          "line": 15,
+          "snippet": "const REMOTE_MCP_CLIENT_SECRET = process.env.AGENT_E2E_MCP_CLIENT_SECRET ?? \"\";",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/e2e-tests/src/utils/useRemoteAtlasMcpAgent.ts",
+          "line": 23,
+          "snippet": "return !!REMOTE_MCP_CLIENT_ID && !!REMOTE_MCP_CLIENT_SECRET;",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/e2e-tests/src/utils/useRemoteAtlasMcpAgent.ts",
+          "line": 56,
+          "snippet": "MDB_MCP_API_CLIENT_SECRET: REMOTE_MCP_CLIENT_SECRET,",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/atlasHelpers.ts",
+          "line": 28,
+          "snippet": "!process.env.MDB_MCP_API_CLIENT_ID?.length || !process.env.MDB_MCP_API_CLIENT_SECRET?.length",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/atlasHelpers.ts",
+          "line": 36,
+          "snippet": "apiClientSecret: process.env.MDB_MCP_API_CLIENT_SECRET || \"test-secret\",",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/atlasHelpers.ts",
+          "line": 47,
+          "snippet": "!process.env.MDB_MCP_API_CLIENT_ID?.length || !process.env.MDB_MCP_API_CLIENT_SECRET?.length",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/atlasHelpers.ts",
+          "line": 55,
+          "snippet": "apiClientSecret: process.env.MDB_MCP_API_CLIENT_SECRET || \"test-secret\",",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/atlasHelpers.ts",
+          "line": 90,
+          "snippet": "!process.env.MDB_MCP_API_CLIENT_ID?.length || !process.env.MDB_MCP_API_CLIENT_SECRET?.length",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/atlasHelpers.ts",
+          "line": 330,
+          "snippet": "\"MDB_MCP_API_CLIENT_ID / MDB_MCP_API_CLIENT_SECRET configured so that streamsGlobalSetup.ts \" +",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/streamsGlobalSetup.ts",
+          "line": 29,
+          "snippet": "if (!process.env.MDB_MCP_API_CLIENT_ID?.length || !process.env.MDB_MCP_API_CLIENT_SECRET?.length) {",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/integration-tests/src/tools/atlas/streamsGlobalSetup.ts",
+          "line": 70,
+          "snippet": "clientSecret: process.env.MDB_MCP_API_CLIENT_SECRET || \"\",",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mongodb-atlas-mcp-remote/src/config.ts",
+          "line": 41,
+          "snippet": "const clientSecret = process.env.MDB_MCP_API_CLIENT_SECRET;",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mongodb-atlas-mcp-remote/src/config.ts",
+          "line": 43,
+          "snippet": "errors.push(\"MDB_MCP_API_CLIENT_SECRET is required\");",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mongodb-mcp-server/packaging/mcpb/manifest.json",
+          "line": 75,
+          "snippet": "\"atlas_client_secret\": {",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mongodb-mcp-server/server.json",
+          "line": 48,
+          "snippet": "\"name\": \"MDB_MCP_API_CLIENT_SECRET\",",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/mongodb-mcp-server/server.json",
+          "line": 759,
+          "snippet": "\"name\": \"MDB_MCP_API_CLIENT_SECRET\",",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB310",
+          "family": "Secrets",
+          "severity": "medium",
+          "file": "packages/setup/src/setupMcpServer.ts",
+          "line": 38,
+          "snippet": "env.MDB_MCP_API_CLIENT_SECRET = serviceWorkerSecret;",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB101",
+          "family": "Hidden content",
+          "severity": "medium",
+          "file": "packages/ui/src/lib/tools/list-databases.ts",
+          "line": 7,
+          "snippet": "\u200c  (+6 hidden chars total)",
+          "note": "zero-width=6 bidi=0 tags=0",
+          "likely_doc": false
+        }
+      ]
+    },
+    {
+      "repo": "servers",
+      "files_total": 365,
+      "files_scanned": 364,
+      "files_binary_skipped": 0,
+      "files_size_skipped": 1,
+      "findings_total": 146,
+      "findings_real": 14,
+      "high": 0,
+      "medium": 3,
+      "verdict": "REVIEW",
+      "rules": {
+        "HB602": 83,
+        "HB501": 38,
+        "HB503": 23,
+        "HB105": 1,
+        "HB310": 1
+      },
+      "notable": [
+        {
+          "rule": "HB501",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": ".github/ISSUE_TEMPLATE/1-bug_report.yml",
+          "line": 70,
+          "snippet": "- uvx or pip (PyPI package)",
+          "note": "",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "src/everything/server/icons.ts",
+          "line": 37,
+          "snippet": "`<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" ` +",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB105",
+          "family": "Hidden content",
+          "severity": "medium",
+          "file": "src/everything/tools/get-tiny-image.ts",
+          "line": 6,
+          "snippet": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACN... (decodes to text)",
+          "note": "base64 blob decodes to instruction-like text",
+          "likely_doc": false
+        }
+      ]
+    },
+    {
+      "repo": "skills",
+      "files_total": 272,
+      "files_scanned": 270,
+      "files_binary_skipped": 0,
+      "files_size_skipped": 2,
+      "findings_total": 223,
+      "findings_real": 96,
+      "high": 0,
+      "medium": 94,
+      "verdict": "REVIEW",
+      "rules": {
+        "HB602": 99,
+        "HB310": 9,
+        "HB503": 105,
+        "HB401": 1,
+        "HB403": 1,
+        "HB203": 1,
+        "HB301": 2,
+        "HB501": 5
+      },
+      "notable": [
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 42,
+          "snippet": "\"w\": \"http://schemas.openxmlformats.org/wordprocessingml/2006/main\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 43,
+          "snippet": "\"w14\": \"http://schemas.microsoft.com/office/word/2010/wordml\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 44,
+          "snippet": "\"w15\": \"http://schemas.microsoft.com/office/word/2012/wordml\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 45,
+          "snippet": "\"w16cid\": \"http://schemas.microsoft.com/office/word/2016/wordml/cid\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 46,
+          "snippet": "\"w16cex\": \"http://schemas.microsoft.com/office/word/2018/wordml/cex\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 165,
+          "snippet": "(\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/comments\", \"comments.xml\"),",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 166,
+          "snippet": "(\"http://schemas.microsoft.com/office/2011/relationships/commentsExtended\", \"commentsExtended.xml\"),",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 167,
+          "snippet": "(\"http://schemas.microsoft.com/office/2016/09/relationships/commentsIds\", \"commentsIds.xml\"),",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/comment.py",
+          "line": 168,
+          "snippet": "(\"http://schemas.microsoft.com/office/2018/08/relationships/commentsExtensible\", \"commentsExtensible.xml\"),",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/merge_runs.py",
+          "line": 37,
+          "snippet": "WORDML_NS = \"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/helpers/__init__.py",
+          "line": 21,
+          "snippet": "SLIDE_REL_TYPE = \"http://schemas.openxmlformats.org/officeDocument/2006/relationships/slide\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/helpers/pptx_theme.py",
+          "line": 16,
+          "snippet": "THEME_REL_TYPE = \"http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validate.py",
+          "line": 28,
+          "snippet": "WORD_NS = \"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 73,
+          "snippet": "MC_NAMESPACE = \"http://schemas.openxmlformats.org/markup-compatibility/2006\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 74,
+          "snippet": "XML_NAMESPACE = \"http://www.w3.org/XML/1998/namespace\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 77,
+          "snippet": "\"http://schemas.openxmlformats.org/package/2006/relationships\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 80,
+          "snippet": "\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 83,
+          "snippet": "\"http://schemas.openxmlformats.org/package/2006/content-types\"",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 89,
+          "snippet": "\"http://schemas.openxmlformats.org/officeDocument/2006/math\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 90,
+          "snippet": "\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 91,
+          "snippet": "\"http://schemas.openxmlformats.org/schemaLibrary/2006/main\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 92,
+          "snippet": "\"http://schemas.openxmlformats.org/drawingml/2006/main\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 93,
+          "snippet": "\"http://schemas.openxmlformats.org/drawingml/2006/chart\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 94,
+          "snippet": "\"http://schemas.openxmlformats.org/drawingml/2006/chartDrawing\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 95,
+          "snippet": "\"http://schemas.openxmlformats.org/drawingml/2006/diagram\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 96,
+          "snippet": "\"http://schemas.openxmlformats.org/drawingml/2006/picture\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 97,
+          "snippet": "\"http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 98,
+          "snippet": "\"http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 99,
+          "snippet": "\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        },
+        {
+          "rule": "HB503",
+          "family": "MCP config",
+          "severity": "medium",
+          "file": "skills/docx/scripts/office/validators/base.py",
+          "line": 100,
+          "snippet": "\"http://schemas.openxmlformats.org/presentationml/2006/main\",",
+          "note": "plain-HTTP remote (no TLS)",
+          "likely_doc": false
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "repos": 7,
+    "files_scanned": 2952,
+    "files_total": 2955,
+    "findings_total": 2446,
+    "verdicts": {
+      "PASS": 0,
+      "REVIEW": 7,
+      "FAIL": 0
+    },
+    "rules": {
+      "HB602": 1821,
+      "HB501": 98,
+      "HB403": 19,
+      "HB401": 13,
+      "HB405": 6,
+      "HB101": 5,
+      "HB310": 251,
+      "HB503": 197,
+      "HB301": 3,
+      "HB105": 4,
+      "HB201": 1,
+      "HB311": 25,
+      "HB402": 2,
+      "HB203": 1
+    }
+  }
+}

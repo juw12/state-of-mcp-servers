@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The State of MCP Servers · Gardu Security Scan</title>
+  <meta name="description" content="A security scan of the top public MCP servers and skills — who ships them, how big they are, and what a security scan finds before your AI agent trusts them.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js"></script>
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5"/>
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <svg class="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <span>GARDU · SECURITY SCAN</span>
+      </div>
+      <h1>The State of MCP Servers</h1>
+      <p class="hero-subtitle">
+        A scan of the top public MCP servers and skills — who ships them, how big they are, and what a security scan finds before your AI agent trusts them.
+      </p>
+      <div class="hero-meta">
+        <span class="meta-item">As of <time id="asOfDate">—</time></span>
+        <span class="meta-item">Scanner <code id="scannerVersion">—</code></span>
+      </div>
+      <div class="hero-actions">
+        <a href="https://juw12.github.io/hexbane/" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Open the live scanner
+        </a>
+        <a href="#data" class="btn btn-secondary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          Scan data (JSON)
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="scan-graphic" viewBox="0 0 200 200" fill="none" stroke="currentColor">
+        <circle cx="100" cy="100" r="80" stroke-width="1" class="scan-ring-1"/>
+        <circle cx="100" cy="100" r="60" stroke-width="1" class="scan-ring-2"/>
+        <circle cx="100" cy="100" r="40" stroke-width="1" class="scan-ring-3"/>
+        <path d="M100 20 L100 40 M100 160 L100 180 M20 100 L40 100 M160 100 L180 100" stroke-width="2"/>
+        <path d="M100 60 L100 140 M60 100 L140 100" stroke-width="1.5" class="scan-cross"/>
+        <rect x="85" y="85" width="30" height="30" stroke-width="2" class="scan-center"/>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <!-- Headline Stats -->
+    <section class="stats-section" id="stats">
+      <div class="stats-grid">
+        <div class="stat-card stat-card-wide">
+          <div class="stat-value" data-count-target="ecosystem.github_mcp_in_name_total">—</div>
+          <div class="stat-label">
+            Public MCP repos on GitHub
+            <span class="stat-caveat" title="Count of public GitHub repositories with 'mcp' in the name. A broad upper bound, not a deduped server count.">(broad, "mcp" in name)</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-count-target="servers.count">—</div>
+          <div class="stat-label">Servers tracked</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-count-target="skills.count">—</div>
+          <div class="stat-label">Top skills</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" data-count-target="scan.totals.files_scanned">—</div>
+          <div class="stat-label">Files security-scanned</div>
+        </div>
+      </div>
+      <div class="verdict-pills">
+        <div class="verdict-pill verdict-pass">
+          <span class="pill-icon">✓</span>
+          <span class="pill-label">PASS</span>
+          <span class="pill-count" data-count-target="scan.totals.verdicts.PASS">0</span>
+        </div>
+        <div class="verdict-pill verdict-review">
+          <span class="pill-icon">!</span>
+          <span class="pill-label">REVIEW</span>
+          <span class="pill-count" data-count-target="scan.totals.verdicts.REVIEW">0</span>
+        </div>
+        <div class="verdict-pill verdict-fail">
+          <span class="pill-icon">✕</span>
+          <span class="pill-label">FAIL</span>
+          <span class="pill-count" data-count-target="scan.totals.verdicts.FAIL">0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="methodology-section" id="methodology">
+      <h2>What We Scanned</h2>
+      <div class="methodology-content">
+        <p>
+          The <strong>7 top MCP servers</strong> (by stars) plus the <strong>Anthropic skills repo</strong> were cloned and run through the Gardu static scanner. 
+          We apply Hexbane rule philosophy across families <strong>HB101–HB701</strong>: hidden content, injection, secrets, execution &amp; exfiltration, MCP config, and tool manifest.
+        </p>
+        <p class="methodology-note">
+          <strong>Limits:</strong> This is a pattern/structure scanner that reads text — it does not execute code or follow URLs. 
+          <strong>PASS = "nothing known found"</strong>, not "safe". A clean scan means no known bad patterns were detected; it does not guarantee the code is secure.
+        </p>
+      </div>
+      <div class="scan-table-wrapper">
+        <table class="scan-table" id="scanTable">
+          <thead>
+            <tr>
+              <th>Repository</th>
+              <th>Files Scanned</th>
+              <th>Findings</th>
+              <th>Verdict</th>
+            </tr>
+          </thead>
+          <tbody id="scanTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Security Findings -->
+    <section class="findings-section" id="findings">
+      <h2>Security Findings</h2>
+      <p class="section-intro">Notable findings from the scan, grouped by repository.</p>
+      <div class="findings-list" id="findingsList">
+        <!-- Populated by JS -->
+        <div class="findings-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <p>No notable findings recorded yet. Scan status: <strong id="scanStatusText">pending</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Servers Table -->
+    <section class="table-section" id="servers-table">
+      <div class="table-header">
+        <h2>Top Public MCP Servers</h2>
+        <div class="table-controls">
+          <input type="text" class="search-input" id="serversSearch" placeholder="Search servers…" aria-label="Search servers">
+          <div class="filter-chips" id="serversCategories">
+            <!-- Populated by JS -->
+          </div>
+          <select class="sort-select" id="serversSort" aria-label="Sort servers">
+            <option value="stars-desc">Stars (high→low)</option>
+            <option value="stars-asc">Stars (low→high)</option>
+            <option value="name-asc">Name (A→Z)</option>
+            <option value="name-desc">Name (Z→A)</option>
+            <option value="pushed-desc">Last push (recent)</option>
+            <option value="pushed-asc">Last push (older)</option>
+            <option value="verdict">Verdict</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="data-table" id="serversTable">
+          <thead>
+            <tr>
+              <th class="col-rank">#</th>
+              <th class="col-name">Name</th>
+              <th class="col-category">Category</th>
+              <th class="col-stars sortable" data-sort="stars">Stars</th>
+              <th class="col-lang">Language</th>
+              <th class="col-pushed sortable" data-sort="pushed">Last Push</th>
+              <th class="col-scan">Scan</th>
+            </tr>
+          </thead>
+          <tbody id="serversTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Top Skills Table -->
+    <section class="table-section" id="skills-table">
+      <div class="table-header">
+        <h2>Top Public Skills</h2>
+        <div class="table-controls">
+          <input type="text" class="search-input" id="skillsSearch" placeholder="Search skills…" aria-label="Search skills">
+          <div class="filter-chips" id="skillsCategories">
+            <!-- Populated by JS -->
+          </div>
+          <select class="sort-select" id="skillsSort" aria-label="Sort skills">
+            <option value="stars-desc">Stars (high→low)</option>
+            <option value="stars-asc">Stars (low→high)</option>
+            <option value="name-asc">Name (A→Z)</option>
+            <option value="name-desc">Name (Z→A)</option>
+            <option value="pushed-desc">Last push (recent)</option>
+            <option value="pushed-asc">Last push (older)</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrapper">
+        <table class="data-table" id="skillsTable">
+          <thead>
+            <tr>
+              <th class="col-rank">#</th>
+              <th class="col-name">Name</th>
+              <th class="col-category">Category</th>
+              <th class="col-stars sortable" data-sort="stars">Stars</th>
+              <th class="col-lang">Language</th>
+              <th class="col-pushed sortable" data-sort="pushed">Last Push</th>
+            </tr>
+          </thead>
+          <tbody id="skillsTableBody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Observations -->
+    <section class="observations-section" id="observations">
+      <h2>The State</h2>
+      <ol class="observations-list" id="observationsList">
+        <!-- Populated by JS -->
+      </ol>
+    </section>
+
+    <!-- Data & Reproduce -->
+    <section class="data-section" id="data">
+      <h2>Data &amp; Reproduce</h2>
+      <div class="data-content">
+        <h3>Get the Raw Data</h3>
+        <p>
+          All data is open. Download the JSON files or browse the repository:
+        </p>
+        <div class="download-row">
+          <a href="data/data.json" class="download-link" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>data.json</span>
+          </a>
+          <a href="data/servers.json" class="download-link" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>servers.json</span>
+          </a>
+          <a href="data/skills.json" class="download-link" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>skills.json</span>
+          </a>
+          <a href="data/scan.json" class="download-link" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>scan.json</span>
+          </a>
+          <a href="data/ecosystem.json" class="download-link" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>ecosystem.json</span>
+          </a>
+        </div>
+        
+        <h3>Reproduce the Scan</h3>
+        <p>Run the scan yourself on any repository:</p>
+        <div class="code-block-wrapper">
+          <code class="code-block" id="scanCommand">npx -y hexbane scan &lt;path&gt;</code>
+          <button class="copy-btn" id="copyScanCmd" aria-label="Copy command">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
+        
+        <h3>Source</h3>
+        <p>
+          GitHub API data as of <time id="sourceDate">—</time>. 
+          Scan performed by <a href="https://juw12.github.io/hexbane/" target="_blank" rel="noopener">Gardu/Hexbane</a> static scanner.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="brand-name">Gardu · by Juwen</span>
+        <a href="https://juw12.github.io/hexbane/" class="footer-link" target="_blank" rel="noopener">Hexbane</a>
+        <span class="footer-license">MIT</span>
+      </div>
+      <div class="footer-meta">
+        <span class="as-of">As of <time id="footerDate">—</time></span>
+        <p class="disclaimer">
+          Working prototype by one developer. Not audited. <strong>PASS = nothing known found, not "safe".</strong>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

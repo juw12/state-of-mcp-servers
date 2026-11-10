@@ -1,0 +1,27 @@
+{
+  "as_of": "2026-11-10",
+  "github_mcp_in_name_total": 359500,
+  "note": "Count of public GitHub repositories with 'mcp' in the name (GitHub search, as_of date). A broad upper bound on the ecosystem, not a deduped server count.",
+  "top_categories": {
+    "Official & SDK": 7,
+    "Agents & Frameworks": 7,
+    "Code & Dev tools": 7,
+    "Design, 3D & Games": 5,
+    "Browser & Web": 4,
+    "Data & Scraping": 3,
+    "Databases": 3,
+    "Cloud & Infrastructure": 3,
+    "Workflow & Automation": 2,
+    "Registries & Awesome": 2,
+    "Reverse Engineering": 2
+  },
+  "scanned_repos": [
+    "Cloudflare/mcp-server-cloudflare",
+    "anthropics/skills",
+    "geelen/mcp-remote",
+    "github/github-mcp-server",
+    "modelcontextprotocol/servers",
+    "mongodb-js/mongodb-mcp-server",
+    "wonderwhy-er/DesktopCommanderMCP"
+  ]
+}
