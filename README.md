@@ -55,7 +55,7 @@ Read the full analysis in [`report/state-of-mcp-servers.md`](report/state-of-mcp
 
 ## Open it
 
-- **Live:** `https://juw12.github.io/<this-repo>/` (GitHub Pages, auto-deployed from `web/`)
+- **Live:** <https://juw12.github.io/state-of-mcp-servers/> — GitHub Pages, auto-deployed from `web/` on push to `main`. (If it 404s once: repo → Settings → Pages → **Source: GitHub Actions** → Save; the workflow then deploys.)
 - **Local:** open [`web/index.html`](web/index.html) in a browser, or
   `python -m http.server` from `web/` and visit `http://localhost:8000`.
 - The page is a single interactive landing page — no build step, no dependencies,
